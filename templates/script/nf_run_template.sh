@@ -9,34 +9,12 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --mem=3G
 
-# send email >>> edit "username" <<<
-#SBATCH --mail-user=username@shu.ac.uk
-#SBATCH --mail-type=BEGIN,END,FAIL
-
-# output log file
-#SBATCH --output=nextflow.log
-
-
-
-
-
-
-# job name
-#SBATCH --job-name=nfcore_rnaseq
-
-# request resources for the job
-#SBATCH --cpus-per-task=1
-#SBATCH --mem=3G
-
-# send email
+# send email >>> edit username <<<
 #SBATCH --mail-user=a.surname@institution.ac.uk
 #SBATCH --mail-type=BEGIN,END,FAIL
 
 # output log file
 #SBATCH --output=nextflow.log
-
-
-
 
 
 ## load miniconda module and activate analysis environment
@@ -55,7 +33,7 @@ export NXF_OPTS="-Xms1g -Xmx2g"
 export NXF_SINGULARITY_CACHEDIR="/path/to/singularity_cache/.singularity"
 
 # path to project directory >>> edit so that this points to your project root directory <<<
-NF_PROJECT="/path/to/project/yyyy_mm_dd_rnaseq_end_to_end"
+NF_PROJECT="/path/to/project/yyyy_mm_dd_project_name"
 
 # project directories  >>> edit the name of the "filestore" e.g. /mnt/parscratch/users <<<
 WORK_DIR="${NF_PROJECT}/results/nf_work"
