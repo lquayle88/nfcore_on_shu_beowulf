@@ -41,6 +41,6 @@ nano nf_run.sh
 
 Paste the contents of the template file linked below into the editor ensuring to change the generic information for your own where indicated in the comment lines.
 
-[Template run submission script](../templates/script/run_script_template.sh)
+[Template run submission script](../templates/script/nf_run_template.sh)
 
 Now save and exit by typing "Ctrl + O" then "Return" then "Ctrl + X".
