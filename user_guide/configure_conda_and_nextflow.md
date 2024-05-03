@@ -30,20 +30,14 @@ conda update conda
 
 ## Create a Conda Analysis Environment with Nextflow and nf-core
 
-Run the following commands in order and follow any prompts as appropriate:
+This approach works with the most recent versions of nextflow (v23.10.1), nf-core (v2.13.1) and singularity (v3.8.6), along with the specific version of Java shown. Run the following commands in order and follow any prompts as appropriate:
 
 ```shell
 # make the "nf_env" environment
-conda create --name nf_env nextflow nf-core singularity java-jdk
+conda create --name nf_env nextflow nf-core singularity java-1.8.0-openjdk-devel-cos7-s390x
 
 # activate the environment
 source activate nf_env
-
-# remove the openjdk package - results in an error if not done
-conda remove openjdk
-
-# ensure all packages are up-to-date
-conda update --all
 ```
 
 You can now test the install has worked by running the following:
@@ -53,7 +47,15 @@ You can now test the install has worked by running the following:
 nextflow info
 
 # test functionality
-nextflow run hello -dsl2
+nextflow run hello
+```
+
+You will notice if you run `ls -al` wherever you executed these commands (e.g., your $HOME directory) that a directory called `work` and a file `nextflow.log` have been created. You can remove these.
+
+Finally, we should create a specific cache for our singularity containers to be pulled to which we can specify later in any pipeline driver job run script. Run the following command:
+
+```shell
+mkdir $HOME/.singularity
 ```
 
 When you are finished, you can deactivate your conda environment using the command `conda deactivate`
